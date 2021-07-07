@@ -59,7 +59,7 @@ export function Home (): JSX.Element {
           </button>
 
           <button className="initial" onClick={() => {
-            setNumber(prevState => (prevState * -1))
+            setNumber(prevState => (prevState ? prevState * -1 : 0))
           }}>
             +/-
           </button>

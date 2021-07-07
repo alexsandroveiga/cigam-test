@@ -75,7 +75,7 @@ export function Home (): JSX.Element {
             %
           </button>
 
-          <button className={`operator ${operator === '/' && 'active'}`} onClick={() => handleOperator('/')}>
+          <button className={`operator ${hasOperator && operator === '/' && 'active'}`} onClick={() => handleOperator('/')}>
             ÷
           </button>
 
@@ -92,7 +92,7 @@ export function Home (): JSX.Element {
             9
           </button>
 
-          <button className={`operator ${operator === '*' && 'active'}`} onClick={() => handleOperator('*')}>
+          <button className={`operator ${hasOperator && operator === '*' && 'active'}`} onClick={() => handleOperator('*')}>
             x
           </button>
 
@@ -108,7 +108,7 @@ export function Home (): JSX.Element {
             6
           </button>
 
-          <button className={`operator ${operator === '-' && 'active'}`} onClick={() => handleOperator('-')}>
+          <button className={`operator ${hasOperator && operator === '-' && 'active'}`} onClick={() => handleOperator('-')}>
             -
           </button>
 
@@ -124,7 +124,7 @@ export function Home (): JSX.Element {
             3
           </button>
 
-          <button className={`operator ${operator === '+' && 'active'}`} onClick={() => handleOperator('+')}>
+          <button className={`operator ${hasOperator && operator === '+' && 'active'}`} onClick={() => handleOperator('+')}>
             +
           </button>
 

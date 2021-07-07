@@ -5,6 +5,7 @@ export function Home (): JSX.Element {
   const [waitingToCalc, setWaitingToCalc] = useState(0)
   const [number, setNumber] = useState(0)
   const [operator, setOperator] = useState('')
+  const [hasOperator, setHasOperator] = useState(false)
 
   const handleReset = useCallback(() => {
     setNumber(0)
@@ -15,12 +16,16 @@ export function Home (): JSX.Element {
   const handleOperator = useCallback((operator: string) => {
     setOperator(operator)
     setWaitingToCalc(number)
+    setHasOperator(true)
   }, [number])
 
   const handleNumber = useCallback((num: number) => {
-    const calc = (number && !operator) ? (number * 10) + num : num
+    const calc = (number && !hasOperator) ? (number * 10) + num : num
+    if (hasOperator) {
+      setHasOperator(false)
+    }
     setNumber(calc)
-  }, [number, operator])
+  }, [number, hasOperator])
 
   const handleCalc = useCallback(() => {
     const sum = waitingToCalc + number
